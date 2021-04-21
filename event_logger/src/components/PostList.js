@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 export default function PostList(props) {
   return(
     <>
-      {mainPostList.map((post, index) =>
+      {props.postList.map((post) =>
       <Post
         postTitle={post.postTitle}
         postAuthor={post.postAuthor}

@@ -6,7 +6,7 @@ export default class PostControl extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      formVisibleOnPage: true,
+      formVisibleOnPage: false,
       mainPostList: []
     };
   }
