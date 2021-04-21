@@ -6,8 +6,8 @@ export default class PostControl extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      formVisibleOnPage: false,
-      mainPostList = []
+      formVisibleOnPage: true,
+      mainPostList: []
     };
   }
 
@@ -27,6 +27,9 @@ export default class PostControl extends React.Component {
         <NewPostForm onNewPostCreation={this.handleAddingNewPostToList} />
       );
       buttonText = "Return to the List of Posts";
+    } else {
+      currentlyVisibleState = (<PostList postList={this.state.mainPostList} />);
+      buttonText = "Add Post";
     }
   return(
     <>
