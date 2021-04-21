@@ -27,8 +27,6 @@ The goal of this project is to learn how to build a basic React application that
 * CSS
 * Node.js
 * npm
-* webpack
-* Jest
 * Markdown
 * git
 
