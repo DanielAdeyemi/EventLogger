@@ -1,13 +1,15 @@
-import React from "react";
-import NewPostForm from "./NewPostForm";
-import PostList from "./PostList";
+import React from 'react';
+import NewPostForm from './NewPostForm';
+import PostList from './PostList';
+import PostDetail from './PostDetail';
 
 export default class PostControl extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       formVisibleOnPage: false,
-      mainPostList: []
+      mainPostList: [],
+      selectedPost: null
     };
   }
 
@@ -25,6 +27,11 @@ export default class PostControl extends React.Component {
     });
   };
 
+  handleChangingSelectedPost = (id) => {
+    const selectedPost = this.state.mainPostList.filter(post => post.id === id)[0];
+    this.setState({selectedPost: selectedPost})
+  }
+
   render() {
     let currentlyVisibleState = null;
     let buttonText = null;
@@ -34,7 +41,11 @@ export default class PostControl extends React.Component {
       );
       buttonText = "Return to the List of Posts";
     } else {
-      currentlyVisibleState = (<PostList postList={this.state.mainPostList} />);
+      currentlyVisibleState = 
+        <PostList 
+          postList={this.state.mainPostList} 
+          onPostSelection={this.handleChangingSelectedPost}
+        />;
       buttonText = "Add Post";
     }
   return(

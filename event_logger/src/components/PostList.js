@@ -7,6 +7,7 @@ export default function PostList(props) {
     <>
       {props.postList.map((post) =>
       <Post
+        whenPostClicked={props.onPostSelection}
         postTitle={post.postTitle}
         postAuthor={post.postAuthor}
         postContent={post.postContent}
@@ -19,5 +20,6 @@ export default function PostList(props) {
 }
 
 PostList.propTypes = {
-  postList: PropTypes.array
+  postList: PropTypes.array,
+  onPostSelection: PropTypes.func
 };
