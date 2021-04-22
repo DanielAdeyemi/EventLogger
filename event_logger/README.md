@@ -4,7 +4,8 @@
 \
 [Epicodus](https://www.epicodus.com/) > [React](https://www.learnhowtoprogram.com/react) > [Week 2, Lesson 31](https://www.learnhowtoprogram.com/react/react-fundamentals/help-queue-merch-site-event-logger-two-day-project)  
 \
-Date created: 04/21/2021
+Date created: 4/21/2021  
+Last updated: 4/22/2021
 
 ## Authors and Contributors
 Authored by: Daniel Adeyemi, Micah L. Olson
