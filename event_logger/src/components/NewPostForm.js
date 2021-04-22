@@ -7,7 +7,7 @@ export default function NewPostForm(props) {
     event.preventDefault();
     props.onNewPostCreation({
       postTitle: event.target.postTitle.value,
-      postAutor: event.target.postAutor.value,
+      postAutor: event.target.postAuthor.value,
       postContent: event.target.postContent.value,
       id: v4()
     });
