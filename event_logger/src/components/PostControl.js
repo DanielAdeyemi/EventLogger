@@ -39,16 +39,16 @@ export default class PostControl extends React.Component {
 	};
 
 	handleChangingSelectedPost = (id) => {
-		const selectedPost = this.state.mainPostList.filter(
-			(post) => post.id === id
-		)[0];
+		const selectedPost = 
+			this.state.mainPostList
+			.filter((post) => post.id === id)[0];
 		this.setState({ selectedPost: selectedPost });
 	};
 
 	handleDeletingPost = (id) => {
-		const newMainPostList = this.state.mainPostList.filter(
-			(post) => post.id !== id
-		);
+		const newMainPostList = 
+			this.state.mainPostList
+			.filter((post) => post.id !== id);
 		this.setState({
 			mainPostList: newMainPostList,
 			selectedPost: null,
@@ -74,21 +74,19 @@ export default class PostControl extends React.Component {
 		let currentlyVisibleState = null;
 		let buttonText = null;
 		if (this.state.editing) {
-			currentlyVisibleState = (
+			currentlyVisibleState = 
 				<EditPostForm
 					post={this.state.selectedPost}
 					onEditPost={this.handleEditingPostInList}
 				/>
-			);
 			buttonText = "Return to the List of Posts";
 		} else if (this.state.selectedPost !== null) {
-			currentlyVisibleState = (
+			currentlyVisibleState = 
 				<PostDetail
 					post={this.state.selectedPost}
 					onClickingDelete={this.handleDeletingPost}
 					onClickingEdit={this.handleEditClick}
 				/>
-			);
 			buttonText = "Return to the List of Posts";
 		} else if (this.state.formVisibleOnPage) {
 			currentlyVisibleState = 
