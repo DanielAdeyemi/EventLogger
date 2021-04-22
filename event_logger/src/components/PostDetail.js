@@ -10,11 +10,13 @@ export default function PostDetail(props) {
       <h5><i>Authored by: {post.postAuthor}</i></h5>
       <p>{post.postContent}</p>
       <button onClick={()=>onClickingDelete(post.id)}>No need in this event anymore!</button>
+      <button onClick={props.onClickingEdit}>New event's staff came up!</button>
     </>
   );
 }
 
 PostDetail.propTypes = {
   post: PropTypes.object,
-  onClickingDelete: PropTypes.func
+  onClickingDelete: PropTypes.func,
+  onClickingEdit: PropTypes.func
 };
