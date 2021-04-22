@@ -5,9 +5,7 @@ export default function Post(props) {
   return(
     <>
       <div onClick = {() => props.whenPostClicked(props.id)}>
-      <h2> {props.postTitle} </h2>
-      <h4><i> {props.postAuthor} </i></h4>
-      <p> {props.postContent} </p>
+      <h2> {props.postTitle} by <i> {props.postAuthor} </i> </h2>
     </div>
     </>
   );
