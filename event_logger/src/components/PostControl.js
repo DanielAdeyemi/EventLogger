@@ -6,9 +6,15 @@ export default class PostControl extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      formVisibleOnPage: true,
+      formVisibleOnPage: false,
       mainPostList: []
     };
+  }
+
+  handleClick = () => { // toggle views between pages using button
+    this.setState(prevState => ({
+      formVisibleOnPage: !prevState.formVisibleOnPage
+    }));
   }
 
   handleAddingNewPostToList = (newPost) => {
@@ -34,7 +40,7 @@ export default class PostControl extends React.Component {
   return(
     <>
       {currentlyVisibleState}
-      <button>{buttonText}</button>
+      <button onClick={this.handleClick}>{buttonText}</button>
     </>
   )
   };
