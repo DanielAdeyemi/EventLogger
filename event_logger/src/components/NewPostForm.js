@@ -1,4 +1,5 @@
 import React from 'react';
+import ReusableForm from "./ReusableForm ";
 import PropTypes from "prop-types";
 import { v4 } from "uuid";
 
@@ -14,12 +15,14 @@ export default function NewPostForm(props) {
   }
   return(
     <>
-      <form onSubmit={handleNewPostFormSubmission}>
-        <input type="text" name="postTitle" placeholder="Title of the event" required />
-        <input type="text" name="postAuthor" placeholder="Your Name" required />
-        <textarea name="postContent" placeholder="Tell us about your event..." />
-        <button type="submit">Boom!</button>
-      </form>
+      <ReusableForm 
+        formSubmissionHandler={handleNewPostFormSubmission}
+        buttonText="Boom!"
+      />
     </>
   );
 }
+
+NewPostForm.propTypes = {
+  onNewPostCreation: PropTypes.func
+};
