@@ -43,7 +43,7 @@ export default class PostControl extends React.Component {
   handleDeletingPost = (id) => {
     const newMainPostList = this.state.mainPostList.filter(post => post.id !== id);
     this.setState({
-      mainPostList = newMainPostList,
+      mainPostList: newMainPostList,
       selectedPost: null
     });
   }
