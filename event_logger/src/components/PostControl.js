@@ -9,16 +9,16 @@ export default class PostControl extends React.Component {
 		this.state = {
 			formVisibleOnPage: false,
 			mainPostList: [],
-			selectedPost: null,
+			selectedPost: null
 		};
 	}
 
 	handleClick = () => {
 		// toggle views between pages using button
-		if (this.state.selectedPost != null) {
+		if (this.state.selectedPost !== null) {
 			this.setState({
 				formVisibleOnPage: false,
-				selectedPost: null,
+				selectedPost: null
 			});
 		} else {
 			this.setState((prevState) => ({
@@ -31,22 +31,32 @@ export default class PostControl extends React.Component {
 		const newMainPostList = this.state.mainPostList.concat(newPost);
 		this.setState({
 			mainPostList: newMainPostList,
-			formVisibleOnPage: false,
+			formVisibleOnPage: false
 		});
 	};
 
 	handleChangingSelectedPost = (id) => {
-		const selectedPost = this.state.mainPostList.filter(
-			(post) => post.id === id
-		)[0];
+		const selectedPost = this.state.mainPostList.filter((post) => post.id === id)[0];
 		this.setState({ selectedPost: selectedPost });
 	};
+
+  handleDeletingPost = (id) => {
+    const newMainPostList = this.state.mainPostList.filter(post => post.id !== id);
+    this.setState({
+      mainPostList = newMainPostList,
+      selectedPost: null
+    });
+  }
 
 	render() {
 		let currentlyVisibleState = null;
 		let buttonText = null;
-		if (this.state.selectedPost) {
-			currentlyVisibleState = <PostDetail post={this.state.selectedPost} />;
+		if (this.state.selectedPost !== null) {
+			currentlyVisibleState = 
+        <PostDetail   
+          post={this.state.selectedPost} 
+          onClickingDelete = {this.handleDeletingPost} 
+        />;
 			buttonText = "Return to the List of Posts";
 		} else if (this.state.formVisibleOnPage) {
 			currentlyVisibleState = (
