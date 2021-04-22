@@ -57,9 +57,9 @@ export default class PostControl extends React.Component {
 
   handleEditingPostInList = (postToEdit) => {
     const editedMainPostList = 
-      this.state.mainPostList.
-      filter(post => post.id !== this.state.selectedPost.id).
-      concat(postToEdit);
+      this.state.mainPostList
+      .filter(post => post.id !== this.state.selectedPost.id)
+      .concat(postToEdit);
     this.setState({
       mainPostList: editedMainPostList,
       editing: false,
